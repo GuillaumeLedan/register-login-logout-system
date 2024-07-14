@@ -20,10 +20,10 @@ class AuthentificationController extends AbstractController
         $errors = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Vérifiez le jeton CSRF
+            // Vérifie le jeton CSRF
             $csrfToken = $_POST['csrf_token'] ?? '';
             if (!empty($csrfToken) && $csrfToken === ($_SESSION['csrf_token'] ?? '')) {
-                // Le jeton CSRF est valide, continuez le traitement du formulaire
+                // Le jeton CSRF est valide, continue le traitement du formulaire
 
                 $email = $_POST['email'] ?? '';
                 $password = $_POST['password'] ?? '';
@@ -44,7 +44,7 @@ class AuthentificationController extends AbstractController
                             'role' => $user['RoleId'] ?? ''
                         ];
 
-                        header("Location: /home"); // Redirigez l'utilisateur vers la page d'accueil
+                        header("Location: /home"); // Redirige l'utilisateur vers la page d'accueil
                         exit;
                     } else {
                         $errors[] = "Adresse e-mail ou mot de passe incorrect.";
@@ -69,7 +69,7 @@ class AuthentificationController extends AbstractController
         // session_unset();
         session_destroy();
 
-        // Rediriger l'utilisateur vers la page de connexion
+        // Redirige l'utilisateur vers la page de connexion
         header("Location: /");
         exit;
     }
