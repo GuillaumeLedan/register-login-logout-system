@@ -1,0 +1,184 @@
+
+
+:root{
+    --main-color : #141414;
+    --second-color : #333333;
+    --third-color: #eff0f1;
+
+    --font-family-main : 'Roboto', sans-serif;
+
+    --font-size-small : large ;
+    --font-size-medium : x-large;
+    --font-size-high : xx-large ;
+    --font-size-xhigh: xxx-large ;
+
+    --border-main-color : 1px solid #FF3333;
+    --border-radius : 14px;
+
+    --center-block : 0 auto;
+    --margin : 2rem;
+    --padding : 4rem;
+}
+
+html,
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+body{
+    width: 100%;
+    background-color: rgb(224, 224, 224);
+}
+
+main {
+    flex-grow: 1;
+}
+
+
+header{
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--third-color);
+    border-bottom: 1px solid grey;
+    /* z-index: 999;
+    position: fixed; */
+}
+
+.valid {
+    border: 1px solid #02bb02; /* Bordure verte pour indiquer un champ valide */
+}
+
+.invalid {
+    border: 1px solid #f32525; /* Bordure rouge pour indiquer un champ invalide */
+}
+
+footer{
+    width: 100vw;
+    background-color: var(--third-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border-top: 1px solid grey;
+    margin-top: auto;
+}
+
+#section-footer{
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#card-connexion, fieldset{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+#section-connexion {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#img-home {
+    width: 50%;
+    height: 100%;
+    background-image: url("/assets/images/workstation.webp");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+}
+
+#right-wp-auth{
+    width: 50vw;
+}
+
+.nav-section{
+    border-bottom: #333333 1px solid;
+    z-index: 3;
+}
+
+#right-wp-auth nav{
+   display: flex;
+    flex-direction: row;
+    justify-content: end;
+    border-bottom: #333333 solid 1px;
+    padding-bottom: 1rem;
+   padding-right: 1rem;
+}
+
+
+#card-connexion {
+    width: 50vw;
+    height: 80vh;
+    padding: 2rem; 
+}
+
+#container-connexion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#card-connexion .img-auth{
+    width: 30%;
+    z-index: 1;
+    position: absolute;
+}
+
+#card-connexion form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background-color: #eff0f1;
+    border-radius: 24px;
+    box-shadow: 2px 1px 10px rgb(0, 0, 0);
+
+}
+
+#card-connexion fieldset{
+    width: 50%;
+    border: none;
+    z-index: 2;
+    margin-bottom: 2rem;
+    margin-right: .5rem;
+}
+
+#card-connexion input{
+    margin: .5rem auto;
+    width: 15vw;
+}
+
+.btn-connexion{
+    width: 100%;
+    padding: 1rem;
+
+}
+
+#register-link{
+    margin-top: 1rem;
+}
+
+
+
+
+
+
+
+

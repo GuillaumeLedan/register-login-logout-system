@@ -1,0 +1,55 @@
+<?php
+// Génération et stockage du jeton CSRF dans la session
+try {
+    $csrfToken = bin2hex(random_bytes(32));
+} catch (Exception $e) {
+    // Génére un jeton CSRF aléatoire
+    $csrfToken = null; // Définis le jeton CSRF sur null en cas d'échec de génération
+}
+
+// Assure $_SESSION['csrf_token'] est défini
+if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = $csrfToken;
+}
+?>
+
+<section>
+    <h2>Inscription</h2>
+
+    <form action="/register" method="POST">
+
+        <input type="hidden" name="reg-form" id="reg-form" value="register" />
+        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?? '' ?>">
+
+        <fieldset>
+            <legend>Informations personnelles</legend>
+
+
+            <label for="firstName">Firstname :</label>
+            <input type="text" id="firstName" name="firstName" required minlength="3" maxlength="20">
+
+            <label for="lastName">Lastname :</label>
+            <input type="text" id="lastName" name="lastName" required minlength="3" maxlength="20">
+
+            <label for="reg-email">Adresse e-mail :</label>
+            <input type="email" id="reg-email" name="reg-email" required>
+
+            <label for="reg-password">Mot de passe :</label>
+            <input type="password" id="reg-password" name="reg-password" minlength="12" required>
+
+            <label for="reg-confirmPassword">Confirmation du mot de passe :</label>
+            <input type="password" id="reg-confirmPassword" name="reg-confirmPassword" minlength="12" required>
+
+            <input type="submit" value="S'inscrire">
+        </fieldset>
+    </form>
+
+    <div id="password-message">
+        <ul id="password-requirements">
+        </ul>
+    </div>
+
+</section>
+
+<script src="/assets/js/register.js"></script>
+

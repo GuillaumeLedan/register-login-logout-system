@@ -1,0 +1,13 @@
+# Active le module de réécriture d'URL d'Apache
+RewriteEngine On
+
+# La condition suivante vérifie si la requête n'est pas un fichier existant
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# La condition suivante vérifie si la requête n'est pas un répertoire existant
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# La règle de réécriture redirige toutes les requêtes vers index.php, en passant la route en paramètre
+RewriteRule ^(.*)$ index.php?route=$1 [QSA,L]
+
+
