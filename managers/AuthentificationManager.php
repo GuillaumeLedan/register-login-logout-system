@@ -9,8 +9,7 @@ class AuthentificationManager extends AbstractManager{
             $stmt->execute([$email]);
             return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            // Gérer les erreurs de la base de données ici
-
+            
             error_log("Erreur de base de données: " . $e->getMessage());
             return false;
         }
